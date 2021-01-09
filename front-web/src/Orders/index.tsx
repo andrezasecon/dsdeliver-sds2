@@ -1,13 +1,14 @@
-import './styles.css';
 import StepsHeader from './StepsHeader';
 import ProductsList from "./ProductsList";
 import Footer from "../Footer";
 import { useEffect, useState } from 'react';
-import { OrderLocationdata, Product } from './types';
-import { fethProducts } from '../api';
+import { toast } from 'react-toastify';
+import { OrderLocationData, Product } from './types';
+import { fethProducts, saveOrder } from '../api';
 import OrderLocation from './OrderLocation';
 import OrderSummary from './OrderSummary';
 import { checkIsSelected } from './helpers';
+import './styles.css';
 
 
 
@@ -15,7 +16,7 @@ function Orders(){
 
 const [products, setProducts] = useState<Product[]>([]);
 const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
-const [orderLocation, setOrderLocation] = useState<OrderLocationdata>();
+const [orderLocation, setOrderLocation] = useState<OrderLocationData>();
 const totalPrice = selectedProducts.reduce((sum, item) => {
     return sum + item.price;
 }, 0);
@@ -23,7 +24,9 @@ const totalPrice = selectedProducts.reduce((sum, item) => {
 useEffect(() => {
     fethProducts()
     .then(response => setProducts(response.data))
-    .catch(error => console.log(error))
+    .catch(() => {
+        toast.warning('Erro ao listar produtos!');
+    })
 }, []);
 
 const handleSelectProduct = (product: Product) => {
@@ -37,9 +40,22 @@ const handleSelectProduct = (product: Product) => {
     }
   }
 
-const handSelectProduct = (product: Product) => {
-    const isAlreadySelected = checkIsSelected(selectedProducts, product);
-}
+  const handleSubmit = () => {
+    const productsIds = selectedProducts.map(({ id }) => ({ id }));
+    const payload = {
+      ...orderLocation!,
+      products: productsIds
+    }
+  
+    saveOrder(payload)
+    .then((response) => {
+      toast.error(`Pedido enviado com sucesso! Nº ${response.data.id}`);
+      setSelectedProducts([]);
+    })
+      .catch(() => {
+        toast.warning('Erro ao enviar pedido');
+      })
+  }
 
     return (    
     <>
@@ -56,6 +72,7 @@ const handSelectProduct = (product: Product) => {
                 <OrderSummary 
                     amount={selectedProducts.length} 
                     totalPrice={totalPrice} 
+                    onSubmit={handleSubmit}
                 />
             </div>
                 <Footer />
