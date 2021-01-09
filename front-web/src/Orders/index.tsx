@@ -27,7 +27,7 @@ useEffect(() => {
     .catch(() => {
         toast.warning('Erro ao listar produtos!');
     })
-}, []);
+}, []); 
 
 const handleSelectProduct = (product: Product) => {
     const isAlreadySelected = checkIsSelected(selectedProducts, product);
