@@ -1,4 +1,4 @@
-https://github.com/templateacessivel/dsdeliver-sds2
+https://github.com/andrezasecon/dsdeliver-sds2
 # DS Delivery 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/andrezasecon/dsdeliver-sds2/LICENSE) 
 
