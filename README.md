@@ -11,15 +11,15 @@ DS Delivery é uma aplicação full stack web e mobile construída durante a 1ª
 A aplicação consiste em um app de pedidos e envio de pedidos, onde um cardápio é listado ao usuário, que escolhe os produtos e adiciona o endereço de entrega, após enviar o pedido com sucesso, os pedidos são listados no app mobile do motoboy que escolhe os pedidos a serem entregues e atravé do próprio app é traçado a rota de entrega
 
 ## Layout mobile
-![Mobile 1]() ![Mobile 2]()
+![Mobile 1](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/mob1.png) ![Mobile 2](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/mob2.png) ![Mobile 3](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/mob3.png)
 
 ## Layout web
-![Web 1](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/web1.png)
+![Web 1](https://github.com/andrezasecon/dsdeliver-sds2/assets/web1.png)
 
-![Web 2](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/web2.png)
+![Web 2](https://github.com/andrezasecon/dsdeliver-sds2/assets/web2.png)
 
 ## Modelo conceitual
-![Image](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/modelo-conceitual.png)
+![Image](https://github.com/andrezasecon/dsdeliver-sds2/assets/modelo-conceitual.png)
 
 ## Camadas
 ![camadas](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/camadas.png)
