@@ -14,15 +14,15 @@ A aplicação consiste em um app de pedidos e envio de pedidos, onde um cardápi
 ![Mobile 1]() ![Mobile 2]()
 
 ## Layout web
-![Web 1](https://github.com/templateacessivel/dsdeliver-sds2/blob/main/assets/web1.png)
+![Web 1](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/web1.png)
 
-![Web 2](https://github.com/templateacessivel/dsdeliver-sds2/blob/main/assets/web2.png)
+![Web 2](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/web2.png)
 
 ## Modelo conceitual
-![Image](https://raw.githubusercontent.com/devsuperior/sds2/master/assets/modelo-conceitual.png)
+![Image](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/modelo-conceitual.png)
 
 ## Camadas
-![camadas](https://github.com/devsuperior/sds2/blob/master/assets/camadas.png)
+![camadas](https://github.com/andrezasecon/dsdeliver-sds2/blob/main/assets/camadas.png)
 
 # Tecnologias utilizadas
 ## Back end
