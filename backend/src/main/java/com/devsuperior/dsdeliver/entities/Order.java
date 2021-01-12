@@ -44,7 +44,8 @@ public class Order implements Serializable {
 		
 	}
 
-	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
+	public Order(Long id, String address, Double latitude, Double longitude, 
+			Instant moment, OrderStatus status) {
 		super();
 		this.id = id;
 		this.address = address;
@@ -100,6 +101,16 @@ public class Order implements Serializable {
 
 	public void setStatus(OrderStatus status) {
 		this.status = status;
+	}
+	
+	public Double getTotal() {
+		
+		double sum = 0.0;
+		
+		for(Product p : products) {
+			sum  += p.getPrice();
+		}
+		return sum;
 	}
 
 	public Set<Product> getProducts() {
