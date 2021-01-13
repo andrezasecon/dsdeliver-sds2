@@ -1,16 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import Header from '../Header';
 
-function Home() {
+function Home() { 
 
-    const handleOnPress = () => {
+  const navigation = useNavigation();
 
-    }
-    
+  const handleOnpress = () => {
+    navigation.navigate('Orders');
+  }
   return (
       <>
+      <Header />
     <View style={styles.container}>
       <Image source={require('../assets/deliveryman.png')} />
       <Text style={styles.title}>
@@ -23,7 +26,7 @@ function Home() {
           na palma da sua mão
       </Text>
       <View style={styles.footer}>
-        <RectButton style={styles.button} onPress={}>
+        <RectButton style={styles.button} onPress={handleOnpress}>
             <Text style={styles.buttonText}>VER PEDIDOS</Text> 
         </RectButton>
       </View>
