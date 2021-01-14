@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { isLoading } from 'expo-font';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, ScrollView, Alert, Touchable, Text} from 'react-native';
@@ -12,14 +12,27 @@ function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
-  useEffect(() => {
+  const fetchData = () =>{
     setIsLoading(true);
     fetchOrders()
     .then(response => setOrders(response.data))
     .catch(() => Alert.alert("Houve um erro ao buscar os pedidos!"))
     .finally(() => setIsLoading(false));
-  }, []);
+  }
+
+  useEffect(() => {
+    if (isFocused) {
+      fetchData();
+    }
+  }, [isFocused]);
+
+   const handleOnpress = (order: Order) => {
+    navigation.navigate('OrderDetails', {
+      order
+    });
+  }
 
   return (
       <>
@@ -30,7 +43,11 @@ function Orders() {
               <Text style = {styles.textLoading}>Buscando pedidos ... </Text>
             ) : (
             orders.map(order => (              
-                <TouchableWithoutFeedback key={order.id}>
+                <TouchableWithoutFeedback 
+                key={order.id} 
+                onPress={() => handleOnpress(order)}
+                
+                >
                    <OrderCard order={order}/>
                 </TouchableWithoutFeedback>  
             )) 
