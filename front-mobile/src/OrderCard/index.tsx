@@ -38,20 +38,33 @@ export function formatPrice(price: number) {
   return formatter.format(price);
 }
 
+function adressClient(adress: string){
+  return adress;
+
+}
 
 function OrderCard({ order }: Props) {       
   return (      
     <View style={styles.container}>
+
       <View style={styles.header}>
         <Text style={styles.orderName}>Pedido {order.id}</Text>
         <Text style={styles.orderPrice}>{formatPrice(order.total)}</Text>
       </View>
+
       <Text style={styles.text}>{dateFromNow(order.moment)}</Text>
+
       <View style={styles.productsList}>
         {order.products.map(product => (         
         <Text key={product.id} style={styles.text}>{product.name}</Text>
         ))}
       </View>
+
+      <Text style={styles.productsList}> {adressClient(order.address)}</Text>        
+ 
+
+      
+     
     </View>
      
   );
